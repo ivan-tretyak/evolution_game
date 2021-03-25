@@ -1,6 +1,6 @@
 #include <iostream>
 #include <thread>
-#include "Field.h"
+#include "../include/evolutiong_game/Field.h"
 using namespace std::chrono_literals;
 
 int main() {
