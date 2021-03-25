@@ -10,19 +10,25 @@ Field::Field(unsigned int s) {
     for (int y = 0; y < Field::size; y++) {
         std::vector<Section> temp;
         for (int x = 0; x < Field::size; x++) {
-            std::random_device rs;
-            std::uniform_int_distribution<> types(0, 100);
             Section section;
-            int t = types(rs);
-            if (t < 10) {
-                Cell c(Coordinate({x, y}));
-                section.changeSection(c);
+            if (x == 0 || x == size - 1 || y == 0 || y == size - 1){
+                section.setBorder();
+                temp.push_back(section);
             }
-            if (t > 10 && t < 20) {
-                Food f(grass, 25);
-                section.changeSection(f);
+            else {
+                std::random_device rs;
+                std::uniform_int_distribution<> types(0, 100);
+                int t = types(rs);
+                if (t < 10) {
+                    Cell c(Coordinate({x, y}));
+                    section.changeSection(c);
+                }
+                if (t > 10 && t < 20) {
+                    Food f(grass, 25);
+                    section.changeSection(f);
+                }
+                temp.push_back(section);
             }
-            temp.push_back(section);
         }
         Field::field.push_back(temp);
     }
@@ -48,8 +54,9 @@ void Field::show() {
                 case food_meat:
                     std::cout << "[m]";
                     break;
+                case border:
+                    std::cout << "[:]";
             }
-            //std::cout << " " << x << " " << field[y][x].getType() << std::endl;
         }
         std::cout << std::endl;
     }
@@ -95,6 +102,9 @@ void Field::move() {
                     break;
                 case empty:
                     std::cout << "empty\n";
+                    break;
+                case border:
+                    std::cout << "border\n";
                     break;
             }
         }

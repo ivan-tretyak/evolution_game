@@ -20,6 +20,7 @@ public:
     SectionType getType();
     std::variant<Cell, Food> getItem();
     void erase();
+    void setBorder();
 };
 
 

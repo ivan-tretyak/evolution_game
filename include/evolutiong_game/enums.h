@@ -27,7 +27,8 @@ enum SectionType {
     cell_hebivor,
     food_grass,
     food_meat,
-    empty
+    empty,
+    border
 };
 
 #endif //GENES_ENUMS_H

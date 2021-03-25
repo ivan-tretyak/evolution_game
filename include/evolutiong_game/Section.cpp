@@ -43,3 +43,7 @@ std::variant<Cell, Food> Section::getItem() {
 void Section::erase() {
     Section::type = empty;
 }
+
+void Section::setBorder() {
+    Section::type = border;
+}
