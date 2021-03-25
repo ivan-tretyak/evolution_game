@@ -7,6 +7,7 @@
 
 #include <vector>
 #include <utility>
+#include "enums.h"
 
 
 class Coordinate {
@@ -18,6 +19,8 @@ public:
     Coordinate();
 
     std::vector<int> getXY();
+
+    std::vector<int> getNewCoordinate(unsigned int s, Direction arrow);
 };
 
 

@@ -15,6 +15,7 @@ private:
 public:
     Field(unsigned int s);
     void show();
+    void move();
 };
 
 

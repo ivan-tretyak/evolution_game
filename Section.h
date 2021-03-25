@@ -18,6 +18,8 @@ public:
     void changeSection(Cell c);
     void changeSection(Food f);
     SectionType getType();
+    std::variant<Cell, Food> getItem();
+    void erase();
 };
 
 

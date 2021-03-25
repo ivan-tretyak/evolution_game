@@ -10,6 +10,13 @@ enum FoodType {
     meat
 };
 
+enum Direction {
+    up,
+    right,
+    down,
+    left
+};
+
 enum CellType {
     predator,
     omniglot

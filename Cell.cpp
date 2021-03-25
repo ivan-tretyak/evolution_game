@@ -25,3 +25,27 @@ Cell::Cell() {
     std::uniform_int_distribution<> types(0, 1);
     Cell::type = static_cast<CellType>(types(gen));
 }
+
+Coordinate Cell::getCoordinate() {
+    return Cell::c;
+}
+
+Coordinate Cell::move(SectionType up, SectionType left, SectionType right, SectionType down, unsigned int size) {
+    if (up == empty) {
+        return c.getNewCoordinate(size, Direction::up);
+    }
+    if (right == empty) {
+        return c.getNewCoordinate(size, Direction::right);
+    }
+    if (left == empty) {
+        return c.getNewCoordinate(size, Direction::left);
+    }
+    if (down == empty) {
+        return c.getNewCoordinate(size, Direction::down);
+    }
+    return Coordinate({-1, -1});
+}
+
+void Cell::changeCoordinate(Coordinate c) {
+    Cell::c = c;
+}

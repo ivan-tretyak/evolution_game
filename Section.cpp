@@ -35,3 +35,11 @@ void Section::changeSection(Food f) {
 SectionType Section::getType() {
     return type;
 }
+
+std::variant<Cell, Food> Section::getItem() {
+    return item;
+}
+
+void Section::erase() {
+    Section::type = empty;
+}

@@ -17,6 +17,9 @@ public:
     Cell(Coordinate c);
     Cell();
     CellType getType();
+    Coordinate getCoordinate();
+    Coordinate move(SectionType up, SectionType left, SectionType right, SectionType down, unsigned int size);
+    void changeCoordinate(Coordinate c);
 };
 
 
