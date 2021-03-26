@@ -5,8 +5,10 @@ using namespace std::chrono_literals;
 
 int main() {
     Field f(10);
-    f.show();
-    std::cout<< "\n==========\n";
-    f.move();
-    std::cout<< "\n==========\n";
+    while (true) {
+        f.show();
+        std::this_thread::sleep_for(1s);
+        f.move();
+        system("clear");
+    }
 }

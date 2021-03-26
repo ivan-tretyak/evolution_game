@@ -13,13 +13,18 @@ class Cell {
 private:
     CellType type;
     Coordinate c;
+    int energy = 125;
+    bool moving = false;
 public:
     Cell(Coordinate c);
     Cell();
     CellType getType();
     Coordinate getCoordinate();
     Coordinate move(SectionType up, SectionType left, SectionType right, SectionType down, unsigned int size);
-    void changeCoordinate(Coordinate c);
+    void changeCoordinate(Coordinate coord);
+    void eat(int e);
+    void switchMoving();
+    bool getMoving() const;
 };
 
 

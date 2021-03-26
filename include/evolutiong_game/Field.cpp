@@ -11,11 +11,10 @@ Field::Field(unsigned int s) {
         std::vector<Section> temp;
         for (int x = 0; x < Field::size; x++) {
             Section section;
-            if (x == 0 || x == size - 1 || y == 0 || y == size - 1){
+            if (x == 0 || x == size - 1 || y == 0 || y == size - 1) {
                 section.setBorder();
                 temp.push_back(section);
-            }
-            else {
+            } else {
                 std::random_device rs;
                 std::uniform_int_distribution<> types(0, 100);
                 int t = types(rs);
@@ -65,11 +64,13 @@ void Field::show() {
 void Field::move() {
     for (int y = 0; y < size; y++) {
         for (int x = 0; x < size; x++) {
-            std::cout << "Section this coordinate(" << x << "," << y << ") have a type: ";
             switch (field[y][x].getType()) {
                 case cell_hebivor:
                 case cell_predator: {
-                    std::cout << "cell\n";
+                    if (std::get<Cell>(field[y][x].getItem()).getMoving()) {
+                        break;
+                    }
+                    std::get<Cell>(field[y][x].getItem()).switchMoving();
                     Coordinate currentCoordinate = std::get<Cell>(field[y][x].getItem()).getCoordinate();
                     std::vector<int> upC = currentCoordinate.getNewCoordinate(size, up);
                     std::vector<int> downC = currentCoordinate.getNewCoordinate(size, down);
@@ -81,31 +82,51 @@ void Field::move() {
                     SectionType rightT = field[rightC[1]][rightC[0]].getType();
                     SectionType leftT = field[rightC[1]][rightC[0]].getType();
 
-                    Coordinate newCoordinate = std::get<Cell>(field[y][x].getItem()).move(upT, leftT, rightT, downT, size);\
-                    std::cout << "Change coordinate: ";
+                    Coordinate newCoordinate = std::get<Cell>(field[y][x].getItem()).move(upT, leftT, rightT, downT,
+                                                                                          size);\
                     if (newCoordinate.getXY()[0] == -1 && newCoordinate.getXY()[1] == -1) {
-                        std::cout << "(-1,-1)\n";
                         break;
                     }
-
                     std::vector<int> newXY = newCoordinate.getXY();
-                    std::cout << "(" << x << "," << y << ") => (" << newXY[0] << "," << newXY[1] <<")\n" << std::endl;
-
-                    field[newXY[1]][newXY[0]].changeSection(std::get<Cell>(field[y][x].getItem()));
-                    std::get<Cell>(field[newXY[1]][newXY[0]].getItem()).changeCoordinate(newCoordinate);
-                    field[y][x].erase();
-                    break;
+                    switch (field[newXY[1]][newXY[0]].getType()) {
+                        case empty: {
+                            field[newXY[1]][newXY[0]].changeSection(std::get<Cell>(field[y][x].getItem()));
+                            std::get<Cell>(field[newXY[1]][newXY[0]].getItem()).changeCoordinate(newCoordinate);
+                            field[y][x].erase();
+                            break;
+                        }
+                        case food_grass:{
+                            std::get<Cell>(field[y][x].getItem()).eat(
+                                    std::get<Food>(field[newXY[1]][newXY[0]].getItem()).getEnergy());
+                            field[newXY[1]][newXY[0]].changeSection(std::get<Cell>(field[y][x].getItem()));
+                            std::get<Cell>(field[newXY[1]][newXY[0]].getItem()).changeCoordinate(newCoordinate);
+                            field[y][x].erase();
+                            break;
+                        }
+                        case food_meat: {
+                            std::get<Cell>(field[y][x].getItem()).eat(
+                                    std::get<Food>(field[newXY[1]][newXY[0]].getItem()).getEnergy());
+                            field[newXY[1]][newXY[0]].changeSection(std::get<Cell>(field[y][x].getItem()));
+                            std::get<Cell>(field[newXY[1]][newXY[0]].getItem()).changeCoordinate(newCoordinate);
+                            field[y][x].erase();
+                            break;
+                        }
+                    }
                 }
                 case food_meat:
                 case food_grass:
-                    std::cout << "food\n";
                     break;
                 case empty:
-                    std::cout << "empty\n";
                     break;
                 case border:
-                    std::cout << "border\n";
                     break;
+            }
+        }
+    }
+    for (int y = 0; y < size; y++){
+        for (int x = 0; x < size; x++){
+            if (field[y][x].getType() == cell_predator or field[y][x].getType() == cell_hebivor) {
+                std::get<Cell>(field[y][x].getItem()).switchMoving();
             }
         }
     }

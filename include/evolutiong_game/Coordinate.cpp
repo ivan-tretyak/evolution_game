@@ -29,7 +29,7 @@ std::vector<int> Coordinate::getNewCoordinate(unsigned int s, Direction arrow) {
             break;
         }
         case down: {
-            newCoordinate = {xy[0], xy[1] - 1};
+            newCoordinate = {xy[0], xy[1] + 1};
             break;
         }
         case left: {

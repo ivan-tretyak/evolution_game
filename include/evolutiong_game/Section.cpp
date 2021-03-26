@@ -36,7 +36,7 @@ SectionType Section::getType() {
     return type;
 }
 
-std::variant<Cell, Food> Section::getItem() {
+std::variant<Cell, Food>& Section::getItem() {
     return item;
 }
 
