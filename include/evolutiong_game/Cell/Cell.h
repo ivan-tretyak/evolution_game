@@ -5,18 +5,18 @@
 #ifndef GENES_CELL_H
 #define GENES_CELL_H
 
-#include "enums.h"
-#include <random>
+#include "../enums.h"
 #include "Coordinate.h"
+#include "Genes.h"
 
 class Cell {
 private:
-    CellType type;
     Coordinate c;
     int energy = 125;
     bool moving = false;
+    Genes genes;
 public:
-    Cell(Coordinate c);
+    Cell(Coordinate c, Genes g);
     Cell();
     CellType getType();
     Coordinate getCoordinate();

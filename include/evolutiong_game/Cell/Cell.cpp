@@ -6,24 +6,18 @@
 
 #include <utility>
 
-Cell::Cell(Coordinate c) {
+Cell::Cell(Coordinate c, Genes g) {
     Cell::c = c;
-    std::random_device rd;
-    std::mt19937_64 gen(rd());
-    std::uniform_int_distribution<> types(0, 1);
-    Cell::type = static_cast<CellType>(types(gen));
+    Cell::genes = g;
 }
 
 CellType Cell::getType() {
-    return type;
+    return genes.getType();
 }
 
 Cell::Cell() {
     Cell::c = Coordinate();
-    std::random_device rd;
-    std::mt19937_64 gen(rd());
-    std::uniform_int_distribution<> types(0, 1);
-    Cell::type = static_cast<CellType>(types(gen));
+    Cell::genes = Genes();
 }
 
 Coordinate Cell::getCoordinate() {
@@ -31,7 +25,7 @@ Coordinate Cell::getCoordinate() {
 }
 
 Coordinate Cell::move(SectionType up, SectionType left, SectionType right, SectionType down, unsigned int size) {
-    if (Cell::type == omniglot) {
+    if (Cell::genes.getType() == omniglot) {
         if (up == food_grass) {
             return c.getNewCoordinate(size, Direction::up);
         }
@@ -46,7 +40,7 @@ Coordinate Cell::move(SectionType up, SectionType left, SectionType right, Secti
         }
     }
 
-    if (Cell::type == predator) {
+    if (Cell::genes.getType() == predator) {
         if (up == food_meat) {
             return c.getNewCoordinate(size, Direction::up);
         }

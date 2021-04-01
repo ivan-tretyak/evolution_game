@@ -5,7 +5,7 @@
 #ifndef GENES_SECTION_H
 #define GENES_SECTION_H
 
-#include "Cell.h"
+#include "Cell/Cell.h"
 #include "Food.h"
 #include <variant>
 

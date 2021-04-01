@@ -30,5 +30,4 @@ enum SectionType {
     empty,
     border
 };
-
 #endif //GENES_ENUMS_H

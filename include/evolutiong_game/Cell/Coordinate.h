@@ -7,7 +7,7 @@
 
 #include <vector>
 #include <utility>
-#include "enums.h"
+#include "../enums.h"
 
 
 class Coordinate {
