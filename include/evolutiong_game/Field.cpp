@@ -7,6 +7,14 @@
 Field::Field(unsigned int s) {
     Field::size = s;
 
+    Genes g1;
+    Genes g;
+    do {
+        g = Genes();
+        g1 = Genes();
+    } while (g.getType() == g1.getType());
+
+
     for (int y = 0; y < Field::size; y++) {
         std::vector<Section> temp;
         for (int x = 0; x < Field::size; x++) {
@@ -17,10 +25,16 @@ Field::Field(unsigned int s) {
             } else {
                 std::random_device rs;
                 std::uniform_int_distribution<> types(0, 100);
+                std::uniform_int_distribution<> genes(0, 1);
                 int t = types(rs);
                 if (t < 10) {
-                    Cell c(Coordinate({x, y}));
-                    section.changeSection(c);
+                    if (genes(rs) == 0){
+                        Cell c(Coordinate({x, y}), g);
+                        section.changeSection(c);
+                    } else {
+                        Cell c(Coordinate({x, y}), g1);
+                        section.changeSection(c);
+                    }
                 }
                 if (t > 10 && t < 20) {
                     Food f(grass, 25);
@@ -95,7 +109,7 @@ void Field::move() {
                             field[y][x].erase();
                             break;
                         }
-                        case food_grass:{
+                        case food_grass: {
                             std::get<Cell>(field[y][x].getItem()).eat(
                                     std::get<Food>(field[newXY[1]][newXY[0]].getItem()).getEnergy());
                             field[newXY[1]][newXY[0]].changeSection(std::get<Cell>(field[y][x].getItem()));
@@ -123,8 +137,8 @@ void Field::move() {
             }
         }
     }
-    for (int y = 0; y < size; y++){
-        for (int x = 0; x < size; x++){
+    for (int y = 0; y < size; y++) {
+        for (int x = 0; x < size; x++) {
             if (field[y][x].getType() == cell_predator or field[y][x].getType() == cell_hebivor) {
                 std::get<Cell>(field[y][x].getItem()).switchMoving();
             }
