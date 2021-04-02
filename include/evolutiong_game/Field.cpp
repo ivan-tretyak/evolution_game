@@ -81,6 +81,10 @@ void Field::move() {
             switch (field[y][x].getType()) {
                 case cell_hebivor:
                 case cell_predator: {
+                    if (std::get<Cell>(field[y][x].getItem()).death()) {
+                        field[y][x].changeSection(Food(meat, std::get<Cell>(field[y][x].getItem()).getEnergy()));
+                        break;
+                    }
                     if (std::get<Cell>(field[y][x].getItem()).getMoving()) {
                         break;
                     }
@@ -94,7 +98,7 @@ void Field::move() {
                     SectionType upT = field[upC[1]][upC[0]].getType();
                     SectionType downT = field[downC[1]][downC[0]].getType();
                     SectionType rightT = field[rightC[1]][rightC[0]].getType();
-                    SectionType leftT = field[rightC[1]][rightC[0]].getType();
+                    SectionType leftT = field[leftC[1]][leftC[0]].getType();
 
                     Coordinate newCoordinate = std::get<Cell>(field[y][x].getItem()).move(upT, leftT, rightT, downT,
                                                                                           size);\
@@ -130,8 +134,16 @@ void Field::move() {
                 case food_meat:
                 case food_grass:
                     break;
-                case empty:
+                case empty: {
+                    std::random_device rs;
+                    std::uniform_int_distribution<> types(0, 100);
+                    int chance = types(rs);
+                    if (chance < 5) {
+                        field[y][x].changeSection(Food(grass, 25));
+                    }
                     break;
+                }
+
                 case border:
                     break;
             }

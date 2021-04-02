@@ -15,6 +15,7 @@ private:
     int energy = 125;
     bool moving = false;
     Genes genes;
+    int age = 0;
 public:
     Cell(Coordinate c, Genes g);
     Cell();
@@ -25,6 +26,8 @@ public:
     void eat(int e);
     void switchMoving();
     bool getMoving() const;
+    bool death();
+    int getEnergy();
 };
 
 
