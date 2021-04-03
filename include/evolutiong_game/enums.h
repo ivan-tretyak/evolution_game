@@ -30,4 +30,19 @@ enum SectionType {
     empty,
     border
 };
+
+enum GenesEnum {
+    gene_type,
+    gene_damage,
+    gene_energyForReproduction,
+    gene_startEnergy,
+    gene_maxAge,
+    gene_leftBorderMove,
+    gene_rightBorderMove,
+    gene_upBorderMove,
+    gene_downBorderMove,
+    gene_freeDirection,
+    gene_freeDirectionSecondary,
+    gene_mutantChance
+};
 #endif //GENES_ENUMS_H

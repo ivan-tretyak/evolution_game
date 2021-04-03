@@ -23,8 +23,22 @@ private:
     int damage;
     int energyForReproduction;
     int startEnergy;
+
+    int mutantChance;
 public:
     Genes();
+    Genes(Direction lbm,
+          Direction rbm,
+          Direction ubm,
+          Direction dbm,
+          Direction fd,
+          Direction fds,
+          CellType type,
+          int mA,
+          int d,
+          int efr,
+          int se,
+          int mc);
     Direction getLeftBorderMove();
     Direction getRightBorderMove();
     Direction getUpBorderMove();
@@ -35,6 +49,9 @@ public:
     int getDamage();
     int getEnergyForReproduction();
     CellType getType();
+    int getMutantChance();
+    Genes reproduction();
+    int getStarEnergy();
 };
 
 

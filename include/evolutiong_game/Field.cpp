@@ -105,6 +105,14 @@ void Field::move() {
                     if (newCoordinate.getXY()[0] == -1 && newCoordinate.getXY()[1] == -1) {
                         break;
                     }
+
+                    if (newCoordinate.getXY()[0] == x && newCoordinate.getXY()[1] == y) {
+                        Cell newCell = std::get<Cell>(field[y][x].getItem()).reproduction(upT, leftT, rightT, downT, size);
+                        auto xy = newCell.getCoordinate().getXY();
+                        field[xy[1]][xy[0]].changeSection(newCell);
+                        break;
+                    }
+
                     std::vector<int> newXY = newCoordinate.getXY();
                     switch (field[newXY[1]][newXY[0]].getType()) {
                         case empty: {
@@ -130,6 +138,7 @@ void Field::move() {
                             break;
                         }
                         case cell_hebivor:
+                        case cell_predator:
                             std::get<Cell>(field[newXY[1]][newXY[0]].getItem()).hit(std::get<Cell>(field[y][x].getItem()).damage());
                             break;
                     }

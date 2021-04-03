@@ -9,6 +9,7 @@
 Cell::Cell(Coordinate c, Genes g) {
     Cell::c = c;
     Cell::genes = g;
+    Cell::energy = genes.getStarEnergy();
 }
 
 CellType Cell::getType() {
@@ -25,6 +26,10 @@ Coordinate Cell::getCoordinate() {
 }
 
 Coordinate Cell::move(SectionType up, SectionType left, SectionType right, SectionType down, unsigned int size) {
+    if (Cell::energy > Cell::genes.getEnergyForReproduction() && (up == empty || left == empty || right == empty || down == empty)) {
+        return c;
+    }
+
     if (Cell::genes.getType() == omniglot) {
         if (up == food_grass) {
             return c.getNewCoordinate(size, Direction::up);
@@ -54,19 +59,19 @@ Coordinate Cell::move(SectionType up, SectionType left, SectionType right, Secti
             return c.getNewCoordinate(size, Direction::down);
         }
 
-        if (up == cell_hebivor) {
+        if (up == cell_hebivor || up == cell_predator) {
             return c.getNewCoordinate(size, Direction::up);
         }
 
-        if (right == cell_hebivor) {
+        if (right == cell_hebivor || right == cell_predator) {
             return c.getNewCoordinate(size, Direction::right);
         }
 
-        if (down == cell_hebivor) {
+        if (down == cell_hebivor || down == cell_predator) {
             return c.getNewCoordinate(size, Direction::down);
         }
 
-        if (left == cell_hebivor) {
+        if (left == cell_hebivor || left == cell_predator) {
             return c.getNewCoordinate(size, Direction::left);
         }
     }
@@ -94,7 +99,7 @@ Coordinate Cell::move(SectionType up, SectionType left, SectionType right, Secti
     }
 
     if (down == border){
-        switch (Cell::genes.getUpBorderMove()) {
+        switch (Cell::genes.getDownBorderMove()) {
             case Direction::left: {
                 if (left == empty) {
                     return c.getNewCoordinate(size, Direction::left);
@@ -116,7 +121,7 @@ Coordinate Cell::move(SectionType up, SectionType left, SectionType right, Secti
     }
 
     if (right == border){
-        switch (Cell::genes.getUpBorderMove()) {
+        switch (Cell::genes.getRightBorderMove()) {
             case Direction::left: {
                 if (left == empty) {
                     return c.getNewCoordinate(size, Direction::left);
@@ -138,7 +143,7 @@ Coordinate Cell::move(SectionType up, SectionType left, SectionType right, Secti
     }
 
     if (left == border){
-        switch (Cell::genes.getUpBorderMove()) {
+        switch (Cell::genes.getLeftBorderMove()) {
             case Direction::up: {
                 if (up == empty) {
                     return c.getNewCoordinate(size, Direction::up);
@@ -241,4 +246,18 @@ void Cell::hit(int d) {
 
 int Cell::damage() {
     return Cell::genes.getDamage();
+}
+
+Cell Cell::reproduction(SectionType up, SectionType left, SectionType right, SectionType down, unsigned int size) {
+    Genes new_genes = Cell::genes.reproduction();
+    if (down == empty) {
+        return Cell(Coordinate(Cell::c.getNewCoordinate(size, Direction::down)), new_genes);
+    }
+    if (right == empty) {
+        return Cell(Coordinate(Cell::c.getNewCoordinate(size, Direction::right)), new_genes);
+    }
+    if (left == empty) {
+        return Cell(Coordinate(Cell::c.getNewCoordinate(size, Direction::left)), new_genes);
+    }
+    return Cell(Coordinate(Cell::c.getNewCoordinate(size, Direction::up)), new_genes);
 }

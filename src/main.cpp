@@ -4,7 +4,7 @@
 using namespace std::chrono_literals;
 
 int main() {
-    Field f(10);
+    Field f(50);
     while (true) {
         f.show();
         std::this_thread::sleep_for(1s);
