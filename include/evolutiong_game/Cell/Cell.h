@@ -28,6 +28,8 @@ public:
     bool getMoving() const;
     bool death();
     int getEnergy();
+    void hit(int d);
+    int damage();
 };
 
 

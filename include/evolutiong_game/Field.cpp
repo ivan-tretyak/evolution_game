@@ -129,6 +129,9 @@ void Field::move() {
                             field[y][x].erase();
                             break;
                         }
+                        case cell_hebivor:
+                            std::get<Cell>(field[newXY[1]][newXY[0]].getItem()).hit(std::get<Cell>(field[y][x].getItem()).damage());
+                            break;
                     }
                 }
                 case food_meat:

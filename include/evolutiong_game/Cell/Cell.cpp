@@ -53,6 +53,22 @@ Coordinate Cell::move(SectionType up, SectionType left, SectionType right, Secti
         if (down == food_meat) {
             return c.getNewCoordinate(size, Direction::down);
         }
+
+        if (up == cell_hebivor) {
+            return c.getNewCoordinate(size, Direction::up);
+        }
+
+        if (right == cell_hebivor) {
+            return c.getNewCoordinate(size, Direction::right);
+        }
+
+        if (down == cell_hebivor) {
+            return c.getNewCoordinate(size, Direction::down);
+        }
+
+        if (left == cell_hebivor) {
+            return c.getNewCoordinate(size, Direction::left);
+        }
     }
 
     if (up == border){
@@ -217,4 +233,12 @@ bool Cell::death() {
 
 int Cell::getEnergy() {
     return energy;
+}
+
+void Cell::hit(int d) {
+    Cell::energy -= d;
+}
+
+int Cell::damage() {
+    return Cell::genes.getDamage();
 }
