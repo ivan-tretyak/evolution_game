@@ -12,10 +12,12 @@ class Field {
 private:
     std::vector<std::vector<Section>> field;
     unsigned int size;
+    long int steps = 0;
 public:
     Field(unsigned int s);
     void show();
     void move();
+    void info();
 };
 
 

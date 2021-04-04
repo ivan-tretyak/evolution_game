@@ -7,14 +7,6 @@
 Field::Field(unsigned int s) {
     Field::size = s;
 
-    Genes g1;
-    Genes g;
-    do {
-        g = Genes();
-        g1 = Genes();
-    } while (g.getType() == g1.getType());
-
-
     for (int y = 0; y < Field::size; y++) {
         std::vector<Section> temp;
         for (int x = 0; x < Field::size; x++) {
@@ -28,13 +20,8 @@ Field::Field(unsigned int s) {
                 std::uniform_int_distribution<> genes(0, 1);
                 int t = types(rs);
                 if (t < 10) {
-                    if (genes(rs) == 0){
-                        Cell c(Coordinate({x, y}), g);
-                        section.changeSection(c);
-                    } else {
-                        Cell c(Coordinate({x, y}), g1);
-                        section.changeSection(c);
-                    }
+                    Cell c(Coordinate({x, y}), Genes());
+                    section.changeSection(c);
                 }
                 if (t > 10 && t < 20) {
                     Food f(grass, 25);
@@ -76,13 +63,14 @@ void Field::show() {
 }
 
 void Field::move() {
+    steps++;
     for (int y = 0; y < size; y++) {
         for (int x = 0; x < size; x++) {
             switch (field[y][x].getType()) {
                 case cell_hebivor:
                 case cell_predator: {
                     if (std::get<Cell>(field[y][x].getItem()).death()) {
-                        field[y][x].changeSection(Food(meat, std::get<Cell>(field[y][x].getItem()).getEnergy()));
+                        field[y][x].changeSection(Food(meat, 100));
                         break;
                     }
                     if (std::get<Cell>(field[y][x].getItem()).getMoving()) {
@@ -107,7 +95,8 @@ void Field::move() {
                     }
 
                     if (newCoordinate.getXY()[0] == x && newCoordinate.getXY()[1] == y) {
-                        Cell newCell = std::get<Cell>(field[y][x].getItem()).reproduction(upT, leftT, rightT, downT, size);
+                        Cell newCell = std::get<Cell>(field[y][x].getItem()).reproduction(upT, leftT, rightT, downT,
+                                                                                          size);
                         auto xy = newCell.getCoordinate().getXY();
                         field[xy[1]][xy[0]].changeSection(newCell);
                         break;
@@ -139,7 +128,8 @@ void Field::move() {
                         }
                         case cell_hebivor:
                         case cell_predator:
-                            std::get<Cell>(field[newXY[1]][newXY[0]].getItem()).hit(std::get<Cell>(field[y][x].getItem()).damage());
+                            std::get<Cell>(field[newXY[1]][newXY[0]].getItem()).hit(
+                                    std::get<Cell>(field[y][x].getItem()).damage());
                             break;
                     }
                 }
@@ -168,4 +158,38 @@ void Field::move() {
             }
         }
     }
+}
+
+void Field::info() {
+    int count_predator = 0;
+    int count_herbivor = 0;
+    int count_grass = 0;
+    int count_meat = 0;
+    int count_empty = 0;
+    for (int y = 0; y < size; y++) {
+        for (int x = 0; x < size; x++) {
+            if (field[y][x].getType() == cell_predator) {
+                count_predator++;
+            }
+            if (field[y][x].getType() == cell_hebivor) {
+                count_herbivor++;
+            }
+            if (field[y][x].getType() == food_grass) {
+                count_grass++;
+            }
+            if (field[y][x].getType() == food_meat) {
+                count_meat++;
+            }
+            if (field[y][x].getType() == empty) {
+                count_empty++;
+            }
+        }
+    }
+    std::cout << std::endl;
+    std::cout << "Ход:" << steps << std::endl;
+    std::cout << "\x1b[35;44mХищников:\x1b[0m" << count_predator << std::endl;
+    std::cout << "Травоядных:" << count_herbivor << std::endl;
+    std::cout << "Травы:" << count_grass << std::endl;
+    std::cout << "Мяса:" << count_meat << std::endl;
+    std::cout << "Пустых клеток:" << count_empty << std::endl;
 }
