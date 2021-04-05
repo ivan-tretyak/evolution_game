@@ -34,34 +34,6 @@ Field::Field(unsigned int s) {
     }
 }
 
-
-void Field::show() {
-    for (int y = 0; y < size; y++) {
-        for (int x = 0; x < size; x++) {
-            switch (Field::field[y][x].getType()) {
-                case empty:
-                    std::cout << "[ ]";
-                    break;
-                case cell_predator:
-                    std::cout << "[p]";
-                    break;
-                case cell_hebivor:
-                    std::cout << "[h]";
-                    break;
-                case food_grass:
-                    std::cout << "[g]";
-                    break;
-                case food_meat:
-                    std::cout << "[m]";
-                    break;
-                case border:
-                    std::cout << "[:]";
-            }
-        }
-        std::cout << std::endl;
-    }
-}
-
 void Field::move() {
     steps++;
     for (int y = 0; y < size; y++) {
@@ -160,36 +132,7 @@ void Field::move() {
     }
 }
 
-void Field::info() {
-    int count_predator = 0;
-    int count_herbivor = 0;
-    int count_grass = 0;
-    int count_meat = 0;
-    int count_empty = 0;
-    for (int y = 0; y < size; y++) {
-        for (int x = 0; x < size; x++) {
-            if (field[y][x].getType() == cell_predator) {
-                count_predator++;
-            }
-            if (field[y][x].getType() == cell_hebivor) {
-                count_herbivor++;
-            }
-            if (field[y][x].getType() == food_grass) {
-                count_grass++;
-            }
-            if (field[y][x].getType() == food_meat) {
-                count_meat++;
-            }
-            if (field[y][x].getType() == empty) {
-                count_empty++;
-            }
-        }
-    }
-    std::cout << std::endl;
-    std::cout << "Ход:" << steps << std::endl;
-    std::cout << "\x1b[35;44mХищников:\x1b[0m" << count_predator << std::endl;
-    std::cout << "Травоядных:" << count_herbivor << std::endl;
-    std::cout << "Травы:" << count_grass << std::endl;
-    std::cout << "Мяса:" << count_meat << std::endl;
-    std::cout << "Пустых клеток:" << count_empty << std::endl;
-}
+The show and info methods have been removed
+
+The show and info methods are removed from the Field class because they are auxiliary methods and are not directly
+related to this part of the application, as they represent elements of the user interface.
