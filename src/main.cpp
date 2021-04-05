@@ -1,15 +1,11 @@
-#include <iostream>
-#include <thread>
-#include "../include/evolutiong_game/Field.h"
-using namespace std::chrono_literals;
+#include "QT/mainwindow.h"
 
-int main() {
-    Field f(50);
-    while (true) {
-        f.show();
-        f.info();
-        std::this_thread::sleep_for(1s);
-        f.move();
-        system("clear");
-    }
+#include <QApplication>
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
 }

@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>MainWindow</class>
+    <widget class="QMainWindow" name="MainWindow">
+        <property name="enabled">
+            <bool>true</bool>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>692</width>
+                <height>559</height>
+            </rect>
+        </property>
+        <property name="focusPolicy">
+            <enum>Qt::ClickFocus</enum>
+        </property>
+        <property name="acceptDrops">
+            <bool>false</bool>
+        </property>
+        <property name="windowTitle">
+            <string>GUI Genes</string>
+        </property>
+        <property name="tabShape">
+            <enum>QTabWidget::Rounded</enum>
+        </property>
+        <widget class="QWidget" name="centralwidget">
+            <property name="enabled">
+                <bool>true</bool>
+            </property>
+            <property name="mouseTracking">
+                <bool>true</bool>
+            </property>
+            <widget class="QTableWidget" name="field">
+                <property name="enabled">
+                    <bool>false</bool>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>510</width>
+                        <height>510</height>
+                    </rect>
+                </property>
+                <property name="rowCount">
+                    <number>50</number>
+                </property>
+                <property name="columnCount">
+                    <number>50</number>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                    <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderMinimumSectionSize">
+                    <number>10</number>
+                </attribute>
+                <attribute name="horizontalHeaderDefaultSectionSize">
+                    <number>10</number>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                </attribute>
+                <attribute name="verticalHeaderMinimumSectionSize">
+                    <number>10</number>
+                </attribute>
+                <attribute name="verticalHeaderDefaultSectionSize">
+                    <number>10</number>
+                </attribute>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+            </widget>
+            <widget class="QLabel" name="label">
+                <property name="geometry">
+                    <rect>
+                        <x>520</x>
+                        <y>0</y>
+                        <width>95</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>Ход</string>
+                </property>
+            </widget>
+            <widget class="QLabel" name="num_steps">
+                <property name="geometry">
+                    <rect>
+                        <x>615</x>
+                        <y>0</y>
+                        <width>66</width>
+                        <height>19</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string/>
+                </property>
+            </widget>
+            <widget class="QLabel" name="label_2">
+                <property name="geometry">
+                    <rect>
+                        <x>520</x>
+                        <y>20</y>
+                        <width>95</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>Хищников</string>
+                </property>
+            </widget>
+            <widget class="QLabel" name="num_predator">
+                <property name="geometry">
+                    <rect>
+                        <x>615</x>
+                        <y>20</y>
+                        <width>66</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string/>
+                </property>
+            </widget>
+            <widget class="QLabel" name="label_3">
+                <property name="geometry">
+                    <rect>
+                        <x>520</x>
+                        <y>40</y>
+                        <width>95</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>Травоядных</string>
+                </property>
+            </widget>
+            <widget class="QLabel" name="num_herbivor">
+                <property name="geometry">
+                    <rect>
+                        <x>615</x>
+                        <y>40</y>
+                        <width>66</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string/>
+                </property>
+            </widget>
+            <widget class="QLabel" name="label_4">
+                <property name="geometry">
+                    <rect>
+                        <x>520</x>
+                        <y>60</y>
+                        <width>95</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>Травы</string>
+                </property>
+            </widget>
+            <widget class="QLabel" name="num_grass">
+                <property name="geometry">
+                    <rect>
+                        <x>615</x>
+                        <y>60</y>
+                        <width>66</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string/>
+                </property>
+            </widget>
+            <widget class="QLabel" name="label_5">
+                <property name="geometry">
+                    <rect>
+                        <x>520</x>
+                        <y>80</y>
+                        <width>95</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>Мясо</string>
+                </property>
+            </widget>
+            <widget class="QLabel" name="num_meat">
+                <property name="geometry">
+                    <rect>
+                        <x>615</x>
+                        <y>80</y>
+                        <width>66</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string/>
+                </property>
+            </widget>
+            <widget class="QLabel" name="label_6">
+                <property name="geometry">
+                    <rect>
+                        <x>520</x>
+                        <y>100</y>
+                        <width>95</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>Пустые</string>
+                </property>
+            </widget>
+            <widget class="QLabel" name="num_empty">
+                <property name="geometry">
+                    <rect>
+                        <x>615</x>
+                        <y>100</y>
+                        <width>66</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string/>
+                </property>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget">
+                <property name="geometry">
+                    <rect>
+                        <x>520</x>
+                        <y>120</y>
+                        <width>160</width>
+                        <height>80</height>
+                    </rect>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout">
+                    <item>
+                        <widget class="QPushButton" name="startButton">
+                            <property name="enabled">
+                                <bool>true</bool>
+                            </property>
+                            <property name="mouseTracking">
+                                <bool>false</bool>
+                            </property>
+                            <property name="tabletTracking">
+                                <bool>true</bool>
+                            </property>
+                            <property name="focusPolicy">
+                                <enum>Qt::NoFocus</enum>
+                            </property>
+                            <property name="contextMenuPolicy">
+                                <enum>Qt::NoContextMenu</enum>
+                            </property>
+                            <property name="toolTipDuration">
+                                <number>0</number>
+                            </property>
+                            <property name="text">
+                                <string>Новая игра</string>
+                            </property>
+                            <property name="checkable">
+                                <bool>false</bool>
+                            </property>
+                        </widget>
+                    </item>
+                    <item>
+                        <widget class="QPushButton" name="pauseButon">
+                            <property name="text">
+                                <string>Пауза</string>
+                            </property>
+                        </widget>
+                    </item>
+                </layout>
+            </widget>
+        </widget>
+    </widget>
+    <resources/>
+    <connections/>
+</ui>
