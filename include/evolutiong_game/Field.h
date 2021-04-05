@@ -16,6 +16,8 @@ private:
 public:
     Field(unsigned int s);
     void move();
+    long int getSteps();
+    std::vector<std::vector<Section>> getField();
 };
 
 

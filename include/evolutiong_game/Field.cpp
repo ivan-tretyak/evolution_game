@@ -132,7 +132,10 @@ void Field::move() {
     }
 }
 
-The show and info methods have been removed
+long int Field::getSteps() {
+    return steps;
+}
 
-The show and info methods are removed from the Field class because they are auxiliary methods and are not directly
-related to this part of the application, as they represent elements of the user interface.
+std::vector<std::vector<Section>> Field::getField() {
+    return field;
+}
