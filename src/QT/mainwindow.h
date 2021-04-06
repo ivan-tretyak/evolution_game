@@ -28,6 +28,7 @@ private:
     QTimer *tmr;
     Field f = Field(50);
     bool gameStart = false;
+    void emptyField();
 private slots:
     void updateField();
     void on_startButton_clicked();

@@ -10,8 +10,26 @@
                 <x>0</x>
                 <y>0</y>
                 <width>865</width>
-                <height>559</height>
+                <height>528</height>
             </rect>
+        </property>
+        <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+            </sizepolicy>
+        </property>
+        <property name="minimumSize">
+            <size>
+                <width>865</width>
+                <height>528</height>
+            </size>
+        </property>
+        <property name="maximumSize">
+            <size>
+                <width>865</width>
+                <height>528</height>
+            </size>
         </property>
         <property name="focusPolicy">
             <enum>Qt::ClickFocus</enum>
@@ -38,8 +56,8 @@
                 </property>
                 <property name="geometry">
                     <rect>
-                        <x>0</x>
-                        <y>0</y>
+                        <x>10</x>
+                        <y>10</y>
                         <width>510</width>
                         <height>510</height>
                     </rect>
@@ -199,9 +217,9 @@
             <widget class="QLabel" name="label">
                 <property name="geometry">
                     <rect>
-                        <x>520</x>
-                        <y>0</y>
-                        <width>95</width>
+                        <x>540</x>
+                        <y>10</y>
+                        <width>115</width>
                         <height>20</height>
                     </rect>
                 </property>
@@ -212,8 +230,8 @@
             <widget class="QLabel" name="num_steps">
                 <property name="geometry">
                     <rect>
-                        <x>615</x>
-                        <y>0</y>
+                        <x>655</x>
+                        <y>10</y>
                         <width>66</width>
                         <height>19</height>
                     </rect>
@@ -225,15 +243,11 @@
             <widget class="QLabel" name="label_2">
                 <property name="geometry">
                     <rect>
-                        <x>520</x>
-                        <y>20</y>
+                        <x>560</x>
+                        <y>30</y>
                         <width>95</width>
                         <height>20</height>
                     </rect>
-                </property>
-                <property name="styleSheet">
-                    <string notr="true">background: rgb(255, 0, 255);
-                        color: rgb(255, 255, 255)</string>
                 </property>
                 <property name="text">
                     <string>Хищников</string>
@@ -242,8 +256,8 @@
             <widget class="QLabel" name="num_predator">
                 <property name="geometry">
                     <rect>
-                        <x>615</x>
-                        <y>20</y>
+                        <x>655</x>
+                        <y>30</y>
                         <width>66</width>
                         <height>20</height>
                     </rect>
@@ -255,14 +269,11 @@
             <widget class="QLabel" name="label_3">
                 <property name="geometry">
                     <rect>
-                        <x>520</x>
-                        <y>40</y>
+                        <x>560</x>
+                        <y>50</y>
                         <width>95</width>
                         <height>20</height>
                     </rect>
-                </property>
-                <property name="styleSheet">
-                    <string notr="true">background: rgb(0, 255, 255);</string>
                 </property>
                 <property name="text">
                     <string>Травоядных</string>
@@ -271,8 +282,8 @@
             <widget class="QLabel" name="num_herbivor">
                 <property name="geometry">
                     <rect>
-                        <x>615</x>
-                        <y>40</y>
+                        <x>655</x>
+                        <y>50</y>
                         <width>66</width>
                         <height>20</height>
                     </rect>
@@ -284,14 +295,11 @@
             <widget class="QLabel" name="label_4">
                 <property name="geometry">
                     <rect>
-                        <x>520</x>
-                        <y>60</y>
+                        <x>560</x>
+                        <y>70</y>
                         <width>95</width>
                         <height>20</height>
                     </rect>
-                </property>
-                <property name="styleSheet">
-                    <string notr="true">background: rgb(0, 255, 0)</string>
                 </property>
                 <property name="text">
                     <string>Травы</string>
@@ -300,8 +308,8 @@
             <widget class="QLabel" name="num_grass">
                 <property name="geometry">
                     <rect>
-                        <x>615</x>
-                        <y>60</y>
+                        <x>655</x>
+                        <y>70</y>
                         <width>66</width>
                         <height>20</height>
                     </rect>
@@ -313,25 +321,21 @@
             <widget class="QLabel" name="label_5">
                 <property name="geometry">
                     <rect>
-                        <x>520</x>
-                        <y>80</y>
+                        <x>560</x>
+                        <y>90</y>
                         <width>95</width>
                         <height>20</height>
                     </rect>
                 </property>
-                <property name="styleSheet">
-                    <string notr="true">background: rgb(255, 0, 0);
-                        color: rgb(255, 255, 255);</string>
-                </property>
                 <property name="text">
-                    <string>Мяса</string>
+                    <string>Мясо</string>
                 </property>
             </widget>
             <widget class="QLabel" name="num_meat">
                 <property name="geometry">
                     <rect>
-                        <x>615</x>
-                        <y>80</y>
+                        <x>655</x>
+                        <y>90</y>
                         <width>66</width>
                         <height>20</height>
                     </rect>
@@ -343,9 +347,9 @@
             <widget class="QLabel" name="label_6">
                 <property name="geometry">
                     <rect>
-                        <x>520</x>
-                        <y>100</y>
-                        <width>95</width>
+                        <x>540</x>
+                        <y>110</y>
+                        <width>115</width>
                         <height>20</height>
                     </rect>
                 </property>
@@ -356,8 +360,8 @@
             <widget class="QLabel" name="num_empty">
                 <property name="geometry">
                     <rect>
-                        <x>615</x>
-                        <y>100</y>
+                        <x>655</x>
+                        <y>110</y>
                         <width>66</width>
                         <height>20</height>
                     </rect>
@@ -369,9 +373,9 @@
             <widget class="QLabel" name="test">
                 <property name="geometry">
                     <rect>
-                        <x>520</x>
-                        <y>200</y>
-                        <width>331</width>
+                        <x>540</x>
+                        <y>210</y>
+                        <width>315</width>
                         <height>301</height>
                     </rect>
                 </property>
@@ -396,9 +400,9 @@
                 </property>
                 <property name="geometry">
                     <rect>
-                        <x>520</x>
-                        <y>120</y>
-                        <width>331</width>
+                        <x>540</x>
+                        <y>130</y>
+                        <width>315</width>
                         <height>36</height>
                     </rect>
                 </property>
@@ -427,14 +431,79 @@
             <widget class="QPushButton" name="pauseButon">
                 <property name="geometry">
                     <rect>
-                        <x>520</x>
-                        <y>160</y>
-                        <width>331</width>
+                        <x>540</x>
+                        <y>170</y>
+                        <width>315</width>
                         <height>36</height>
                     </rect>
                 </property>
                 <property name="text">
                     <string>Пауза</string>
+                </property>
+            </widget>
+            <widget class="QLabel" name="label_7">
+                <property name="geometry">
+                    <rect>
+                        <x>540</x>
+                        <y>30</y>
+                        <width>20</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="styleSheet">
+                    <string notr="true">background: rgb(255, 0, 255)</string>
+                </property>
+                <property name="text">
+                    <string/>
+                </property>
+            </widget>
+            <widget class="QLabel" name="label_8">
+                <property name="geometry">
+                    <rect>
+                        <x>540</x>
+                        <y>50</y>
+                        <width>20</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="styleSheet">
+                    <string notr="true">background: rgb(0, 255, 255)</string>
+                </property>
+                <property name="text">
+                    <string/>
+                </property>
+            </widget>
+            <widget class="QLabel" name="label_9">
+                <property name="geometry">
+                    <rect>
+                        <x>540</x>
+                        <y>70</y>
+                        <width>20</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="styleSheet">
+                    <string notr="true">background: rgb(0, 255, 0)
+                    </string>
+                </property>
+                <property name="text">
+                    <string/>
+                </property>
+            </widget>
+            <widget class="QLabel" name="label_10">
+                <property name="geometry">
+                    <rect>
+                        <x>540</x>
+                        <y>90</y>
+                        <width>20</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="styleSheet">
+                    <string notr="true">background: rgb(255, 0, 0)</string>
+                </property>
+                <property name="text">
+                    <string/>
                 </property>
             </widget>
         </widget>

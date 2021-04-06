@@ -18,7 +18,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pauseButon->setDisabled(true);
     ui->field->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->field->setEditTriggers(0);
-    tmr = new QTimer();
 }
 
 MainWindow::~MainWindow() {
@@ -71,6 +70,12 @@ void MainWindow::updateField() {
 
 void MainWindow::on_startButton_clicked() {
     f = Field(50);
+    emptyField();
+    if (gameStart) {
+        tmr->stop();
+        delete tmr;
+    }
+    tmr = new QTimer();
     tmr->setInterval(1000);
     connect(tmr, SIGNAL(timeout()), this, SLOT(updateField()));
     tmr->start();
@@ -112,7 +117,7 @@ void MainWindow::on_field_cellClicked(int row, int column) {
             info += "Текущая энергия\t\t" + std::to_string(c.getEnergy()) + "\n";
             info += "Энергия для размножения\t" + std::to_string(c.getGenes().getEnergyForReproduction()) + "\n";
             info += "Возраст\t\t\t" + std::to_string(c.getAge()) + "\n";
-            info += "Шанс мутации генов\t\t" + std::to_string(c.getGenes().getMutantChance()) + "\n";
+            info += "Шанс мутации генов\t\t" + std::to_string(c.getGenes().getMutantChance()) + "%" + "\n";
             ui->test->setText(QString::fromStdString(info));
 
         }
@@ -121,6 +126,14 @@ void MainWindow::on_field_cellClicked(int row, int column) {
         }
     } else {
         ui->test->setText("Работает только на паузе и для клеток!");
+    }
+}
+
+void MainWindow::emptyField() {
+    for (int i = 0; i < 50; i++) {
+        for (int j = 0; j < 50; j++) {
+            ui->field->item(i, j)->setBackground(Qt::white);
+        }
     }
 }
 
