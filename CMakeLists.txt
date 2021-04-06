@@ -10,7 +10,7 @@ set(QT_VERSION 5)
 set(REQUIRED_LIBS Core Gui Widgets)
 set(REQUIRED_LIBS_QUALIFIED Qt5::Core Qt5::Gui Qt5::Widgets)
 
-add_executable(genes
+add_executable(genes WIN32
         src/main.cpp
         include/evolutiong_game/Cell/Coordinate.cpp
         include/evolutiong_game/Cell/Coordinate.h
@@ -29,10 +29,10 @@ add_executable(genes
         src/QT/mainwindow.h
         src/QT/mainwindow.ui include/evolutiong_game/enums.cpp)
 
-if (NOT CMAKE_PREFIX_PATH)
-    message(WARNING "CMAKE_PREFIX_PATH is not defined, you may need to set it "
-            "(-DCMAKE_PREFIX_PATH=\"path/to/Qt/lib/cmake\" or -DCMAKE_PREFIX_PATH=/usr/include/{host}/qt{version}/ on Ubuntu)")
-endif ()
+#if (NOT CMAKE_PREFIX_PATH)
+#    message(WARNING "CMAKE_PREFIX_PATH is not defined, you may need to set it "
+#            "(-DCMAKE_PREFIX_PATH=\"path/to/Qt/lib/cmake\" or -DCMAKE_PREFIX_PATH=/usr/include/{host}/qt{version}/ on Ubuntu)")
+#endif ()
 
 find_package(Qt${QT_VERSION} COMPONENTS ${REQUIRED_LIBS} REQUIRED)
 target_link_libraries(${PROJECT_NAME} ${REQUIRED_LIBS_QUALIFIED})
