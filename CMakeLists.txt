@@ -10,7 +10,8 @@ set(QT_VERSION 5)
 set(REQUIRED_LIBS Core Gui Widgets)
 set(REQUIRED_LIBS_QUALIFIED Qt5::Core Qt5::Gui Qt5::Widgets)
 
-add_executable(genes src/main.cpp
+add_executable(genes
+        src/main.cpp
         include/evolutiong_game/Cell/Coordinate.cpp
         include/evolutiong_game/Cell/Coordinate.h
         include/evolutiong_game/Food.cpp
@@ -26,7 +27,7 @@ add_executable(genes src/main.cpp
         include/evolutiong_game/Cell/Genes.h
         src/QT/mainwindow.cpp
         src/QT/mainwindow.h
-        src/QT/mainwindow.ui)
+        src/QT/mainwindow.ui include/evolutiong_game/enums.cpp)
 
 if (NOT CMAKE_PREFIX_PATH)
     message(WARNING "CMAKE_PREFIX_PATH is not defined, you may need to set it "

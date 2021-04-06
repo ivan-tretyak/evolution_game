@@ -4,6 +4,8 @@
 
 #ifndef GENES_ENUMS_H
 #define GENES_ENUMS_H
+#include <string>
+
 
 enum FoodType {
     grass,
@@ -45,4 +47,7 @@ enum GenesEnum {
     gene_freeDirectionSecondary,
     gene_mutantChance
 };
+
+std::string getNumeration(CellType t);
+std::string getNumeration(Direction t);
 #endif //GENES_ENUMS_H

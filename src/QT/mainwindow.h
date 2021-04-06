@@ -17,7 +17,7 @@ QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+Q_OBJECT
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -27,10 +27,12 @@ private:
     Ui::MainWindow *ui;
     QTimer *tmr;
     Field f = Field(50);
+    bool gameStart = false;
 private slots:
     void updateField();
     void on_startButton_clicked();
     void on_pauseButon_clicked();
+    void on_field_cellClicked(int row, int column);
 };
 #endif // MAINWINDOW_H
 

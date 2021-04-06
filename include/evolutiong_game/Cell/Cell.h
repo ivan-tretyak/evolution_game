@@ -31,6 +31,9 @@ public:
     void hit(int d);
     int damage();
     Cell reproduction(SectionType up, SectionType left, SectionType right, SectionType down, unsigned  int size);
+    Genes getGenes();
+    int getAge();
+
 };
 
 

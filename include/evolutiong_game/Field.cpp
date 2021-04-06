@@ -132,7 +132,7 @@ void Field::move() {
     }
 }
 
-long int Field::getSteps() {
+long int Field::getSteps() const {
     return steps;
 }
 

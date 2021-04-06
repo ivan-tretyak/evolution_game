@@ -26,6 +26,8 @@ Coordinate Cell::getCoordinate() {
 }
 
 Coordinate Cell::move(SectionType up, SectionType left, SectionType right, SectionType down, unsigned int size) {
+    age += 1;
+    energy = energy - 1;
     if (Cell::energy > Cell::genes.getEnergyForReproduction() && (up == empty || left == empty || right == empty || down == empty)) {
         return c;
     }
@@ -224,8 +226,6 @@ void Cell::eat(int e) {
 
 void Cell::switchMoving() {
     moving = !moving;
-    age += 1;
-    energy = energy - 1;
 }
 
 bool Cell::getMoving() const {
@@ -260,4 +260,12 @@ Cell Cell::reproduction(SectionType up, SectionType left, SectionType right, Sec
         return Cell(Coordinate(Cell::c.getNewCoordinate(size, Direction::left)), new_genes);
     }
     return Cell(Coordinate(Cell::c.getNewCoordinate(size, Direction::up)), new_genes);
+}
+
+Genes Cell::getGenes() {
+    return genes;
+}
+
+int Cell::getAge() {
+    return age;
 }
