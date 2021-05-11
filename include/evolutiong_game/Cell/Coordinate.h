@@ -20,7 +20,7 @@ public:
 
     std::vector<int> getXY();
 
-    std::vector<int> getNewCoordinate(unsigned int s, Direction arrow);
+    std::vector<int> getNewCoordinate(Direction arrow);
 };
 
 

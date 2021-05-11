@@ -17,7 +17,7 @@ Coordinate::Coordinate() {
     Coordinate::xy = {0, 0};
 }
 
-std::vector<int> Coordinate::getNewCoordinate(unsigned int s, Direction arrow) {
+std::vector<int> Coordinate::getNewCoordinate(Direction arrow) {
     std::vector<int> newCoordinate;
     switch (arrow) {
         case up: {
