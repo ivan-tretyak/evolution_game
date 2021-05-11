@@ -1,2 +1,7 @@
 .idea
 cmake-build-debug
+/build
+/.kdev4
+/genes.kdev4
+/CMakeLists.txt.user.32582ca
+/CMakeLists.txt.user
