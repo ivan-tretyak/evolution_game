@@ -108,12 +108,9 @@ Genes::Genes(Direction lbm, Direction rbm, Direction ubm, Direction dbm, Directi
     Genes::mutantChance = mc;
 }
 
-Genes Genes::reproduction() {
+Genes Genes::reproduction(int chance, GenesEnum gene) {
     std::random_device rd;
     std::mt19937_64 gen(rd());
-
-    std::uniform_int_distribution<> chance(0, 100);
-    std::uniform_int_distribution<> gene(0, 11);
 
     std::uniform_int_distribution<> FD(0, 3);
     std::uniform_int_distribution<> TC(0, 1);
@@ -138,8 +135,8 @@ Genes Genes::reproduction() {
     int new_startEnergy = Genes::startEnergy;
     int new_mutantChance = Genes::mutantChance;
 
-    if (chance(gen) < mutantChance) {
-        switch (static_cast<GenesEnum>(gene(gen))) {
+    if (chance < mutantChance) {
+        switch (gene) {
             case gene_damage: {
                 do {
                     new_damage = DAMAGE(gen);

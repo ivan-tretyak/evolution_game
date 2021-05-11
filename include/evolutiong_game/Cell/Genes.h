@@ -50,7 +50,7 @@ public:
     int getEnergyForReproduction();
     CellType getType();
     int getMutantChance();
-    Genes reproduction();
+    Genes reproduction(int chance, GenesEnum gene);
     int getStarEnergy();
 };
 

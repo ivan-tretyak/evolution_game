@@ -21,7 +21,7 @@ public:
     Cell();
     CellType getType();
     Coordinate getCoordinate();
-    Coordinate move(SectionType up, SectionType left, SectionType right, SectionType down, unsigned int size);
+    Coordinate move(SectionType up, SectionType left, SectionType right, SectionType down);
     void changeCoordinate(Coordinate coord);
     void eat(int e);
     void switchMoving();
@@ -30,7 +30,7 @@ public:
     int getEnergy();
     void hit(int d);
     int damage();
-    Cell reproduction(SectionType up, SectionType left, SectionType right, SectionType down, unsigned  int size);
+    Cell reproduction(SectionType up, SectionType left, SectionType right, SectionType down);
     Genes getGenes();
     int getAge();
 
